@@ -550,15 +550,6 @@ export default function AuthGateView({ onLoginSuccess, onOpenRecommendOwner, mes
                 </div>
 
                 <div className="pt-2 border-t border-zinc-800 text-center flex flex-col gap-2">
-                  <button
-                    type="button"
-                    onClick={onInstallClick}
-                    className="w-full flex items-center justify-center gap-2 py-3 px-4 border border-emerald-500/25 rounded-xl text-xs font-black text-emerald-400 hover:text-emerald-300 bg-emerald-500/10 hover:bg-emerald-500/20 transition cursor-pointer uppercase tracking-wider shadow-sm mb-2"
-                  >
-                    <Download className="h-4 w-4" />
-                    <span>Instalar Aplicativo FABISA</span>
-                  </button>
-
                   {onGoToBlog && (
                     <button
                       onClick={onGoToBlog}
