@@ -1,0 +1,162 @@
+{
+  "entities": {
+    "Category": {
+      "title": "Category",
+      "description": "Category representation for benefits",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "icon": { "type": "string" },
+        "description": { "type": "string" }
+      },
+      "required": ["id", "name", "icon"]
+    },
+    "Company": {
+      "title": "Company",
+      "description": "Partner company in the advantages club",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "logo": { "type": "string" },
+        "city": { "type": "string" },
+        "neighborhood": { "type": "string" },
+        "website": { "type": "string" },
+        "phone": { "type": "string" },
+        "email": { "type": "string" },
+        "description": { "type": "string" },
+        "regularPrice": { "type": "number" },
+        "discountedPrice": { "type": "number" },
+        "featured": { "type": "boolean" }
+      },
+      "required": ["id", "name", "logo", "city", "neighborhood", "website", "phone", "email", "regularPrice", "discountedPrice"]
+    },
+    "Benefit": {
+      "title": "Benefit",
+      "description": "Benefit or offer published by a company",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "companyId": { "type": "string" },
+        "categoryId": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "discountValue": { "type": "string" },
+        "howToRedeem": { "type": "string" },
+        "type": { "type": "string", "enum": ["product", "service"] },
+        "featured": { "type": "boolean" },
+        "validUntil": { "type": "string" }
+      },
+      "required": ["id", "companyId", "categoryId", "title", "description", "discountValue", "howToRedeem", "type", "featured", "validUntil"]
+    },
+    "AuthorizedEmail": {
+      "title": "AuthorizedEmail",
+      "description": "Whitelisted email allowing registration in the club",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "addedAt": { "type": "string" }
+      },
+      "required": ["email"]
+    },
+    "UserSavings": {
+      "title": "UserSavings",
+      "description": "Total amount saved by the user with FABISA Saúde",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "total_economizado": { "type": "number" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["email", "total_economizado"]
+    },
+    "PartnerRecommendation": {
+      "title": "PartnerRecommendation",
+      "description": "User suggested partner companies for the benefits club",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "companyName": { "type": "string" },
+        "location": { "type": "string" },
+        "sector": { "type": "string" },
+        "submittedBy": { "type": "string" },
+        "submittedAt": { "type": "string" },
+        "type": { "type": "string" },
+        "whatsapp": { "type": "string" },
+        "origem": { "type": "string" }
+      },
+      "required": ["id", "companyName", "location", "sector"]
+    },
+    "PartnerRegistration": {
+      "title": "PartnerRegistration",
+      "description": "Self-registered company waiting for admin approval",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "companyName": { "type": "string" },
+        "logo": { "type": "string" },
+        "city": { "type": "string" },
+        "neighborhood": { "type": "string" },
+        "phone": { "type": "string" },
+        "email": { "type": "string" },
+        "website": { "type": "string" },
+        "description": { "type": "string" },
+        "benefitTitle": { "type": "string" },
+        "benefitDescription": { "type": "string" },
+        "benefitValue": { "type": "string" },
+        "benefitType": { "type": "string", "enum": ["product", "service"] },
+        "categoryId": { "type": "string" },
+        "status": { "type": "string", "enum": ["pending", "approved", "rejected"] },
+        "submittedAt": { "type": "string" },
+        "feedback": { "type": "string" }
+      },
+      "required": ["id", "companyName", "city", "neighborhood", "phone", "email", "benefitTitle", "benefitDescription", "benefitValue", "benefitType", "categoryId", "status", "submittedAt"]
+    },
+    "VisualConfig": {
+      "title": "VisualConfig",
+      "description": "App branding configurations like logos",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "logoBase64": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "logoBase64"]
+    }
+  },
+  "firestore": {
+    "categories": {
+      "schema": "Category",
+      "description": "Collection of benefit categories"
+    },
+    "companies": {
+      "schema": "Company",
+      "description": "Collection of partner companies"
+    },
+    "benefits": {
+      "schema": "Benefit",
+      "description": "Collection of available discount benefits"
+    },
+    "authorized_emails": {
+      "schema": "AuthorizedEmail",
+      "description": "Whitelisted user emails permitted to register/access"
+    },
+    "user_savings": {
+      "schema": "UserSavings",
+      "description": "User specific total savings counter"
+    },
+    "indicacoes_parceiros": {
+      "schema": "PartnerRecommendation",
+      "description": "Recommendations submitted by users for future partnerships"
+    },
+    "partner_registrations": {
+      "schema": "PartnerRegistration",
+      "description": "Self-registered partner companies awaiting admin review and approval"
+    },
+    "config": {
+      "schema": "VisualConfig",
+      "description": "Application configurations and visual assets"
+    }
+  }
+}

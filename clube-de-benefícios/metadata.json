@@ -1,0 +1,6 @@
+{
+  "name": "Clube de Benefícios",
+  "description": "Plataforma completa de Clube de Benefícios com busca por região, serviços e produtos, além de Painel Administrativo estruturado.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
